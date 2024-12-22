@@ -1,3 +1,13 @@
 package com.example.ucp2
 
-class KRSApp {}
+import android.app.Application
+import com.example.ucp2.dependenciesinjection.ContainerApp
+
+class KRSApp : Application() {
+    lateinit var containerApp: ContainerApp
+
+    override fun onCreate() {
+        super.onCreate()
+        containerApp = ContainerApp(this)
+    }
+}
