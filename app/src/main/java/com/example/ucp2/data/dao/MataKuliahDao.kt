@@ -18,7 +18,7 @@ interface MataKuliahDao {
 
     // mengambil data mata kuliah berdasarkan kode
     @Query("SELECT * FROM matakuliah WHERE kode = :kode")
-    fun getMataKuliah(kode: String): Flow<MataKuliah?>
+    fun getMataKuliah(kode: String): Flow<MataKuliah>
 
     @Update
     suspend fun updateMataKuliah(matkul: MataKuliah)
