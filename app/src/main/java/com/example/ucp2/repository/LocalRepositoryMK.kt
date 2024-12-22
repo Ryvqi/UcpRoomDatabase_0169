@@ -5,21 +5,21 @@ import com.example.ucp2.data.entity.MataKuliah
 import kotlinx.coroutines.flow.Flow
 
 class LocalRepositoryMK(
-    private val mataKuliahDao: MataKuliahDao
+    private val matakuliahDao: MataKuliahDao
 ): RepositoryMK {
-    override suspend fun insertMataKuliah(mataKuliah: MataKuliah){
-        mataKuliahDao.insertMataKuliah(mataKuliah)
+    override suspend fun insertMK(matkul: MataKuliah){
+        matakuliahDao.insertMataKuliah(matkul)
     }
     override fun getAllMK(): Flow<List<MataKuliah>> {
-        return mataKuliahDao.getAllMataKuliah()
+        return matakuliahDao.getAllMataKuliah()
     }
     override fun getMK(kode: String): Flow<MataKuliah> {
-        return mataKuliahDao.getMataKuliah(kode)
+        return matakuliahDao.getMataKuliah(kode)
     }
-    override suspend fun updateMK(mataKuliah: MataKuliah){
-        mataKuliahDao.updateMataKuliah(mataKuliah)
+    override suspend fun updateMK(matkul: MataKuliah){
+        matakuliahDao.updateMataKuliah(matkul)
     }
-    override suspend fun deleteMK(mataKuliah: MataKuliah){
-        mataKuliahDao.deleteMataKuliah(mataKuliah)
+    override suspend fun deleteMK(matkul: MataKuliah){
+        matakuliahDao.deleteMataKuliah(matkul)
     }
 }
