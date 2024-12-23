@@ -8,7 +8,14 @@ import androidx.lifecycle.ViewModel
 import com.example.ucp2.repository.RepositoryDsn
 
 class DosenViewModel(private val repositoryDsn: RepositoryDsn): ViewModel() {
+    var uiState by mutableStateOf(DsnUiState())
 
+    //memperbarui state berdasarkan input pengguna
+    fun updateState(dosenEvent: DosenEvent){
+        uiState = uiState.copy(
+            dosenEvent = dosenEvent
+        )
+    }
 }
 
 data class DosenEvent(
