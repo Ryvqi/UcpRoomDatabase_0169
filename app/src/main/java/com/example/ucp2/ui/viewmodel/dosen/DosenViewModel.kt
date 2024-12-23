@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.ucp2.data.entity.Dosen
 import com.example.ucp2.repository.RepositoryDsn
 import kotlinx.coroutines.launch
 
@@ -80,3 +81,9 @@ data class FormErrorState(
         return nidn == null && nama == null && jeniskelamin == null
     }
 }
+
+fun DosenEvent.toDosenEntity(): Dosen = Dosen(
+    nidn = nidn,
+    nama = nama,
+    jenisKelamin = jeniskelamin,
+)
