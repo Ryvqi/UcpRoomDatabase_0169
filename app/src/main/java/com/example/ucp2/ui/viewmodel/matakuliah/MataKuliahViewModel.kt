@@ -1,5 +1,10 @@
 package com.example.ucp2.ui.viewmodel.matakuliah
 
+import androidx.lifecycle.ViewModel
+import com.example.ucp2.repository.RepositoryMK
+
+class MataKuliahViewModel(private val repositoryMK: RepositoryMK): ViewModel(){}
+
 data class MataKuliahEvent(
     val kode: String = "",
     val nama: String = "",
