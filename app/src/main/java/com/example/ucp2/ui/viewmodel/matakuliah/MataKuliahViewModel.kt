@@ -14,3 +14,17 @@ data class MKUiState(
     val isEntityValid: FormErrorState = FormErrorState(),
     val snackBarMessage: String? = null,
 )
+
+data class FormErrorState(
+    val kode: String? = null,
+    val nama: String? = null,
+    val sks: Int? = null,
+    val semester: Int? = null,
+    val jenis: String? = null,
+    val dosenpengampu: String? = null,
+){
+    fun isValid(): Boolean{
+        return kode == null && nama == null && sks == null &&
+                semester == null && jenis == null && dosenpengampu == null
+    }
+}
