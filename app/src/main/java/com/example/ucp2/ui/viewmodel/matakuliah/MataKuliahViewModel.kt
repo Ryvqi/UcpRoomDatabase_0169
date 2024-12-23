@@ -1,9 +1,20 @@
 package com.example.ucp2.ui.viewmodel.matakuliah
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.ucp2.repository.RepositoryMK
 
-class MataKuliahViewModel(private val repositoryMK: RepositoryMK): ViewModel(){}
+class MataKuliahViewModel(private val repositoryMK: RepositoryMK): ViewModel(){
+    var uiState by mutableStateOf(MKUiState())
+
+    fun updateState(matakuliahEvent: MataKuliahEvent){
+        uiState = uiState.copy(
+            matakuliahEvent = matakuliahEvent
+        )
+    }
+}
 
 data class MataKuliahEvent(
     val kode: String = "",
