@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.ucp2.data.entity.MataKuliah
 import com.example.ucp2.repository.RepositoryMK
 import kotlinx.coroutines.launch
 
@@ -88,3 +89,12 @@ data class FormErrorState(
                 semester == null && jenis == null && dosenpengampu == null
     }
 }
+
+fun MataKuliahEvent.toMataKuliahEntity(): MataKuliah = MataKuliah(
+    kode = kode,
+    nama = nama,
+    sks = sks,
+    semester = semester,
+    jenis = jenis,
+    dosenpengampu = dosenpengampu,
+)
