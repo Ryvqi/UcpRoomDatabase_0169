@@ -1,5 +1,16 @@
 package com.example.ucp2.ui.viewmodel.dosen
 
+import android.view.View
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModel
+import com.example.ucp2.repository.RepositoryDsn
+
+class DosenViewModel(private val repositoryDsn: RepositoryDsn): ViewModel() {
+
+}
+
 data class DosenEvent(
     val nidn: String = "",
     val nama: String = "",
