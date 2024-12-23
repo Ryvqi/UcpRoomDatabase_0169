@@ -1,5 +1,11 @@
 package com.example.ucp2.ui.viewmodel.dosen
 
+data class DosenEvent(
+    val nidn: String = "",
+    val nama: String = "",
+    val jeniskelamin: String = "",
+)
+
 data class DsnUiState(
     val dosenEvent: DosenEvent = DosenEvent(),
     val isEntityValid: FormErrorState = FormErrorState(),
