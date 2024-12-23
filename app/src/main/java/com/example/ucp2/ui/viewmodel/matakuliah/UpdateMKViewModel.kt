@@ -49,4 +49,33 @@ class UpdateMKViewModel(
         updateUIState = updateUIState.copy(isEntityValid = errorState)
         return errorState.isValid()
     }
+
+    fun updateData(){
+        val currentEvent = updateUIState.matakuliahEvent
+
+        if (validateFields()){
+            viewModelScope.launch {
+                try {
+                    repositoryMK.insertMK(currentEvent.toMataKuliahEntity())
+                    updateUIState = updateUIState.copy(
+                        snackBarMessage = "Data berhasil diupdate",
+                        matakuliahEvent = MataKuliahEvent(),
+                        isEntityValid = FormErrorState()
+                    )
+                    println("snackBarMessage diatur: ${updateUIState.snackBarMessage}")
+                } catch (e: Exception){
+                    updateUIState = updateUIState.copy(
+                        snackBarMessage = "Data gagal diupdate"
+                    )
+                }
+            }
+        } else {
+            updateUIState = updateUIState.copy(
+                snackBarMessage = "Input tidak valid. Periksa kembali data anda"
+            )
+        }
+    }
+    fun resetSnackBarMessage() {
+        updateUIState = updateUIState.copy(snackBarMessage = null)
+    }
 }
