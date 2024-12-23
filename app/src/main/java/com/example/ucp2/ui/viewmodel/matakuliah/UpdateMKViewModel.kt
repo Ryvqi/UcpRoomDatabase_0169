@@ -82,5 +82,5 @@ class UpdateMKViewModel(
 }
 
 fun MataKuliah.toUiStateMK(): MKUiState =MKUiState(
-    matakuliahEvent = this.toDetailEvent(),
+    matakuliahEvent = this.toDetailUiEvent(),
 )
