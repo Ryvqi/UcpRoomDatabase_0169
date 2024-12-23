@@ -8,3 +8,9 @@ data class MataKuliahEvent(
     val jenis: String = "",
     val dosenpengampu: String = "",
 )
+
+data class MKUiState(
+    val matakuliahEvent: MataKuliahEvent = MataKuliahEvent(),
+    val isEntityValid: FormErrorState = FormErrorState(),
+    val snackBarMessage: String? = null,
+)
