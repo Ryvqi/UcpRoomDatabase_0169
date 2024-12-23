@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.ucp2.data.entity.MataKuliah
 import com.example.ucp2.repository.RepositoryMK
 import com.example.ucp2.ui.navigation.DestanasiUpdateMataKuliah
 import kotlinx.coroutines.flow.filterNotNull
@@ -79,3 +80,7 @@ class UpdateMKViewModel(
         updateUIState = updateUIState.copy(snackBarMessage = null)
     }
 }
+
+fun MataKuliah.toUiStateMK(): MKUiState =MKUiState(
+    matakuliahEvent = this.toDetailEvent(),
+)
