@@ -5,3 +5,13 @@ data class DsnUiState(
     val isEntityValid: FormErrorState = FormErrorState(),
     val snackBarMessage: String? = null,
 )
+
+data class FormErrorState(
+    val nidn: String? = null,
+    val nama: String? = null,
+    val jeniskelamin: String? = null,
+){
+    fun isValid(): Boolean{
+        return nidn == null && nama == null && jeniskelamin == null
+    }
+}
