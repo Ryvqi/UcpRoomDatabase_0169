@@ -20,7 +20,7 @@ class DosenViewModel(private val repositoryDsn: RepositoryDsn): ViewModel() {
         )
     }
 
-    private fun validateFields(): Boolean{
+    fun validateFields(): Boolean{
         val event = uiState.dosenEvent
         val errorState = FormErrorState(
             nidn = if (event.nidn.isNotEmpty()) null else "Nidn tidak boleh kosong",
