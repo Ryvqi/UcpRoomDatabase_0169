@@ -45,6 +45,7 @@ import kotlinx.coroutines.launch
 fun HomeDsnView(
     viewModel: HomeDsnViewModel = viewModel(factory = PenyediaViewModelKrs.Factory),
     onAddDsn: () -> Unit = { },
+    onBack: () -> Unit = { },
     modifier: Modifier = Modifier
 ){
     Scaffold(
@@ -52,7 +53,7 @@ fun HomeDsnView(
             CustomTopAppBar(
                 judul = "Daftar Dosen",
                 showBackButton = false,
-                onBack = { },
+                onBack = onBack,
                 modifier = modifier
             )
         },
