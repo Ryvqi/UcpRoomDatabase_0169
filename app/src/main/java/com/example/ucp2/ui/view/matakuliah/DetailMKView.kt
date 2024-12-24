@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ucp2.data.entity.MataKuliah
+import com.example.ucp2.ui.customwidget.CustomTopAppBar
 import com.example.ucp2.ui.viewmodel.PenyediaViewModelKrs
 import com.example.ucp2.ui.viewmodel.matakuliah.DetailMKViewModel
 import com.example.ucp2.ui.viewmodel.matakuliah.DetailUiState
