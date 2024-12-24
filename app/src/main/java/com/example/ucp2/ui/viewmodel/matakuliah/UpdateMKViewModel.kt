@@ -49,7 +49,7 @@ class UpdateMKViewModel(
         )
     }
 
-    private fun validateFields(): Boolean{
+    fun validateFields(): Boolean{
         val event = updateUIState.matakuliahEvent
         val errorState = FormErrorState(
             kode = if (event.kode.isNotEmpty()) null else "Kode tidak boleh kosong",

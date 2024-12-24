@@ -68,6 +68,7 @@ fun UpdateMKView(
             //isi body
             InsertBodyMK(
                 uiState = uiState,
+                dosenList = viewModel.dosenList,
                 onValueChange = {updateEvent ->
                     viewModel.updateState(updateEvent)
                 },
