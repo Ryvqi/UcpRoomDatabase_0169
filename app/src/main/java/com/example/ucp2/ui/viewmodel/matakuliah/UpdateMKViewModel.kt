@@ -7,6 +7,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ucp2.data.entity.MataKuliah
+import com.example.ucp2.repository.RepositoryDsn
 import com.example.ucp2.repository.RepositoryMK
 import com.example.ucp2.ui.navigation.DestanasiUpdateMataKuliah
 import kotlinx.coroutines.flow.filterNotNull
@@ -15,12 +16,23 @@ import kotlinx.coroutines.launch
 
 class UpdateMKViewModel(
     savedStateHandle: SavedStateHandle,
-    private val repositoryMK: RepositoryMK
+    private val repositoryMK: RepositoryMK,
+    private val repositoryDsn: RepositoryDsn
 ): ViewModel(){
     var updateUIState by mutableStateOf(MKUiState())
         private set
 
     private val _kode: String = checkNotNull(savedStateHandle[DestanasiUpdateMataKuliah.kode])
+
+    var dosenList by mutableStateOf(listOf<String>())
+
+    fun getDosenList(){
+        viewModelScope.launch {
+            repositoryDsn.getAllDsn().collect { dosenEntities ->
+                dosenList = dosenEntities.map { it.nama }
+            }
+        }
+    }
 
     init {
         viewModelScope.launch {

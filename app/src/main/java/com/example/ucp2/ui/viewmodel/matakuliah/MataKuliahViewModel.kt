@@ -6,11 +6,25 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ucp2.data.entity.MataKuliah
+import com.example.ucp2.repository.RepositoryDsn
 import com.example.ucp2.repository.RepositoryMK
 import kotlinx.coroutines.launch
 
-class MataKuliahViewModel(private val repositoryMK: RepositoryMK): ViewModel(){
+class MataKuliahViewModel(
+    private val repositoryMK: RepositoryMK,
+    private val repositoryDsn: RepositoryDsn
+): ViewModel(){
     var uiState by mutableStateOf(MKUiState())
+
+    var dosenList by mutableStateOf(listOf<String>())
+
+    fun getDosenList(){
+        viewModelScope.launch {
+            repositoryDsn.getAllDsn().collect { dosenEntities ->
+                dosenList = dosenEntities.map { it.nama }
+            }
+        }
+    }
 
     fun updateState(matakuliahEvent: MataKuliahEvent){
         uiState = uiState.copy(

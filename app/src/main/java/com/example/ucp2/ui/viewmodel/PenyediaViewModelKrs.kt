@@ -28,7 +28,8 @@ object PenyediaViewModelKrs{
 
         initializer {
             MataKuliahViewModel(
-                KRSApp().containerApp.repositoryMK
+                KRSApp().containerApp.repositoryMK,
+                KRSApp().containerApp.repositoryDsn
             )
         }
         initializer {
@@ -39,7 +40,8 @@ object PenyediaViewModelKrs{
         initializer {
             UpdateMKViewModel(
                 createSavedStateHandle(),
-                KRSApp().containerApp.repositoryMK
+                KRSApp().containerApp.repositoryMK,
+                KRSApp().containerApp.repositoryDsn
             )
         }
         initializer {
