@@ -34,7 +34,6 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ucp2.ui.customwidget.CustomTopAppBar
 import com.example.ucp2.ui.navigation.AlamatNavigasi
-import com.example.ucp2.ui.view.dosen.InsertBodyDsn
 import com.example.ucp2.ui.viewmodel.PenyediaViewModelKrs
 import com.example.ucp2.ui.viewmodel.matakuliah.FormErrorState
 import com.example.ucp2.ui.viewmodel.matakuliah.MKUiState
@@ -45,7 +44,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-object DestinasiInsert : AlamatNavigasi{
+object DestinasiInsertMK : AlamatNavigasi{
     override val route: String = "insert_mk"
 }
 
@@ -59,6 +58,10 @@ fun InsertMKView(
     val uiState = viewModel.uiState
     val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
+
+    LaunchedEffect(Unit) {
+        viewModel.getDosenList()
+    }
 
     LaunchedEffect(uiState.snackBarMessage) {
         uiState.snackBarMessage?.let { message ->
@@ -237,6 +240,7 @@ fun FormMataKuliah(
         }
 
         ExposedDropdownMenuBox(
+            modifier = Modifier.padding(top = 20.dp),
             expanded = expanded,
             onExpandedChange = { expanded = !expanded }
         ) {
@@ -255,6 +259,7 @@ fun FormMataKuliah(
                 }
             )
             ExposedDropdownMenu(
+                modifier = Modifier.padding(top = 20.dp),
                 expanded = expanded,
                 onDismissRequest = { expanded = false }
             ) {

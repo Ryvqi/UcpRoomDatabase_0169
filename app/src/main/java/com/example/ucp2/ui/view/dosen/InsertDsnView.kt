@@ -35,7 +35,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-object DestinasiInsert : AlamatNavigasi{
+object DestinasiInsertDsn : AlamatNavigasi{
     override val route: String = "insert_dsn"
 }
 
@@ -70,7 +70,7 @@ fun InserDsnView(
                 .padding(16.dp)
         ) {
             CustomTopAppBar(
-                onBack = onBack,
+                onBack = {onBack},
                 showBackButton = true,
                 judul = "Tambah Dosen"
             )

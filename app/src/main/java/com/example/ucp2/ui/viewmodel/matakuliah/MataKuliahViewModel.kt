@@ -22,6 +22,8 @@ class MataKuliahViewModel(
         viewModelScope.launch {
             repositoryDsn.getAllDsn().collect { dosenEntities ->
                 dosenList = dosenEntities.map { it.nama }
+                // Tambahkan log untuk memastikan data diambil
+                dosenEntities.forEach { println("Dosen: ${it.nama}") }
             }
         }
     }

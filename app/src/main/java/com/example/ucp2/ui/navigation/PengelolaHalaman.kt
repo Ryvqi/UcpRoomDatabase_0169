@@ -9,9 +9,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.ucp2.ui.view.Dashboard
+import com.example.ucp2.ui.view.dosen.DestinasiInsertDsn
 import com.example.ucp2.ui.view.dosen.HomeDsnView
 import com.example.ucp2.ui.view.dosen.InserDsnView
-import com.example.ucp2.ui.view.matakuliah.DestinasiInsert
+import com.example.ucp2.ui.view.matakuliah.DestinasiInsertMK
 import com.example.ucp2.ui.view.matakuliah.DetailMKView
 import com.example.ucp2.ui.view.matakuliah.HomeMKView
 import com.example.ucp2.ui.view.matakuliah.InsertMKView
@@ -42,7 +43,7 @@ fun PengelolaHalaman(
         composable(route = DestinasiHomeMatakuliah.route) {
             HomeMKView(
                 onAddMK = {
-                    navController.navigate(DestinasiInsert.route)
+                    navController.navigate(DestinasiInsertMK.route)
                 },
                 onDetailClick = { kode ->
                     navController.navigate("${DestinasiDeailMataKuliah.route}/$kode")
@@ -53,7 +54,7 @@ fun PengelolaHalaman(
             )
         }
 
-        composable(route = DestinasiInsert.route){
+        composable(route = DestinasiInsertMK.route){
             InsertMKView(
                 onBack = {navController.popBackStack()},
                 onNavigate = {navController.popBackStack()},
@@ -103,14 +104,14 @@ fun PengelolaHalaman(
         composable(route = DestinasiHomeDosen.route){
             HomeDsnView(
                 onAddDsn = {
-                    navController.navigate(DestinasiInsert.route)
+                    navController.navigate(DestinasiInsertDsn.route)
                 },
                 onBack = {navController.popBackStack()},
                 modifier = modifier
             )
         }
 
-        composable(route = DestinasiInsert.route){
+        composable(route = DestinasiInsertDsn.route){
             InserDsnView(
                 onBack = {navController.popBackStack()},
                 onNavigate = {navController.popBackStack()},
