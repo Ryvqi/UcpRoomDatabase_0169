@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -25,7 +26,37 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.ucp2.ui.viewmodel.matakuliah.FormErrorState
+import com.example.ucp2.ui.viewmodel.matakuliah.MKUiState
 import com.example.ucp2.ui.viewmodel.matakuliah.MataKuliahEvent
+
+@Composable
+fun InsertBodyMK(
+    modifier: Modifier = Modifier,
+    onValueChange: (MataKuliahEvent) -> Unit,
+    uiState: MKUiState,
+    onClick: () -> Unit,
+    dosenList: List<String>
+){
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+        FormMataKuliah(
+            matakuliahEvent = uiState.matakuliahEvent,
+            onValueChange = onValueChange,
+            errorState = uiState.isEntityValid,
+            modifier = Modifier.fillMaxWidth(),
+            dosenList = dosenList
+        )
+        Button(
+            onClick = onClick,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Simpan")
+        }
+    }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
