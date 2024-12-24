@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface DosenDao {
     // operasi create
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertDosen(dosen: Dosen)
 
     // operasi read (mengambil semua data dosen dan mengurutkan berdasarkan nama (Ascending))

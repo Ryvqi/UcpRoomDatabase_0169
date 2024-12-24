@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MataKuliahDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertMataKuliah(matkul: MataKuliah)
 
     // mengambil semua data mata kuliah dan mengurutkannya berdasarkan nama (Ascending)
